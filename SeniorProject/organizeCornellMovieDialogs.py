@@ -26,6 +26,20 @@ class cleanDataSet(object):
         for i in range(0, self.conversationSize):
             print self.conversations[i];
 
+    def findLineText(self, lineID):
+        textFound = False;
+        numIterations = 0;
+        f = open('./cornell_movie_dialogs_corpus/cornell movie-dialogs corpus/movie_lines.txt', 'r');
+        while (textFound == False) and numIterations < 10:
+            line = f.readline();
+            print "Line: "
+            print line
+            if line[:5] == "L1045":
+                textFound = True;
+                print "Found"
+            numIterations = numIterations + 1;
+        f.close();
+
     #Open and read in N lines; ie: N = conersationSize.
     #use methods: getMovie, getusers, and get ConversationData and store
     #in conversations array.
@@ -44,7 +58,17 @@ class cleanDataSet(object):
             self.conversations[i].append(movie);
             self.conversations[i].append(users);
             self.conversations[i].append(conversation);
-            #self.conversations[i].append = f.readline();
+            
         f.close();
         
-        #print self.conversations[0];
+
+    def fillInConversationData(self):
+
+        #for each individual conversation
+        for i in range(len(self.conversations)):
+
+            #for each conversation lineID
+            for j in range(len(self.conversations[i][2])):
+                print j;
+
+    
