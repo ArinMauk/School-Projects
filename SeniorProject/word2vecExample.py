@@ -1,10 +1,10 @@
 from gensim.models import Word2Vec
 # define training data
-sentences = [['this', 'is', 'the', 'first', 'sentence', 'for', 'word2vec'],
-			['this', 'is', 'the', 'second', 'sentence'],
-			['yet', 'another', 'sentence'],
-			['one', 'more', 'sentence'],
-			['and', 'the', 'final', 'sentence']]
+sentences = [['Brocolli', 'is', 'good', 'to', 'eat', 'My', 'brother', 'likes', 'to', 'eat', 'good', 'brocolli', 'but', 'not', 'my', 'mother'],
+			['My', 'mother', 'spends', 'a', 'lot', 'of', 'time', 'driving', 'my', 'brother', 'around', 'to', 'baseball', 'practice'],
+			['Some', 'health', 'experts', 'suggest', 'that', 'driving', 'may', 'cause', 'increased', 'tension', 'and', 'blood', 'pressure'],
+			['I', 'often', 'feel', 'pressure', 'to', 'perform', 'well', 'at', 'school', 'but', 'my', 'mother', 'never', 'seems', 'to', 'drive', 'my', 'brother', 'to', 'do', 'better'],
+			['Health', 'professionals', 'say', 'that', 'brocolli', 'is', 'good', 'for', 'your', 'health']]
 # train model
 model = Word2Vec(sentences, min_count=1)
 # summarize the loaded model
@@ -13,7 +13,7 @@ print(model)
 words = list(model.wv.vocab)
 print(words)
 # access vector for one word
-print(model['sentence'])
+print(model['brother'])
 # save model
 model.save('model.bin')
 # load model
