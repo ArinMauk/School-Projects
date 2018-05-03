@@ -8,6 +8,8 @@ class cleanDataSet(object):
         self.movieNum = re.compile('m[0-9]+');
         self.usersNames = re.compile('u[0-9]+');
         self.conversationData = re.compile('\'(.*?)\'');
+        self.findLineId = re.compile('L[0-9]*');
+        self.findLineTextGarbage = re.compile('.*\+\+\+\$\+\+\+\s');
     def getConversationSize(self):
         return self.conversationSize;
 
@@ -28,16 +30,17 @@ class cleanDataSet(object):
 
     def findLineText(self, lineID):
         textFound = False;
-        numIterations = 0;
         f = open('./cornell_movie_dialogs_corpus/cornell movie-dialogs corpus/movie_lines.txt', 'r');
-        while (textFound == False) and numIterations < 10:
+        while textFound == False:
             line = f.readline();
-            print "Line: "
-            print line
-            if line[:5] == "L1045":
+            currentLineNum = self.findLineId.findall(line);
+            if currentLineNum[0] == lineID:
                 textFound = True;
-                print "Found"
-            numIterations = numIterations + 1;
+                lineTextGarbage = self.findLineTextGarbage.findall(line);
+                lineText = line.replace(lineTextGarbage[0], "");
+                print "line Text: "
+                print lineText
+            
         f.close();
 
     #Open and read in N lines; ie: N = conersationSize.
