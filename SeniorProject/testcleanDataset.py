@@ -9,5 +9,5 @@ print x.organizeConversationData();
 #print x.getUsers('u0 +++$+++ u2 +++$+++ m9564 +++$+++ [\'L194\', \'L195\', \'L196\', \'L197\']')
 #print x.getConversationData('u0 +++$+++ u2 +++$+++ m9564 +++$+++ [\'L194\', \'L195\', \'L196\', \'L197\']')
 #print x.printConversationsMatrix();
-#x.fillInConversationData();
-x.findLineText("L924");
+x.fillInConversationData();
+x.printConversationsMatrix();
