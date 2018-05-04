@@ -86,4 +86,7 @@ class cleanDataSet(object):
                 #print self.conversations[i][2][j];
                 self.conversations[i][2][j] = self.findLineText(self.conversations[i][2][j]);
 
+    def getConversation(self, conversationNum):
+        return self.conversations[conversationNum][2];
+
     
