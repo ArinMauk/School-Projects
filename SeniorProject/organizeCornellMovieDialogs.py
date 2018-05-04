@@ -26,6 +26,8 @@ class cleanDataSet(object):
     def printConversationsMatrix(self):
         print "CONVERSATION STRUCTURE: "
         for i in range(0, len(self.conversations)):
+            print "======================================================================="
+            print "Conversation " + str(i);
             for j in range(len(self.conversations[i])):
                 if j == 0:
                     print "Movie Number: " + str(self.conversations[i][j]);
