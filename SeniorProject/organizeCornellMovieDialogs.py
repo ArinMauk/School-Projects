@@ -25,8 +25,16 @@ class cleanDataSet(object):
 
     def printConversationsMatrix(self):
         print "CONVERSATION STRUCTURE: "
-        for i in range(0, self.conversationSize):
-            print self.conversations[i];
+        for i in range(0, len(self.conversations)):
+            for j in range(len(self.conversations[i])):
+                if j == 0:
+                    print "Movie Number: " + str(self.conversations[i][j]);
+                elif j == 1:
+                    print "User IDs: " + str(self.conversations[i][j]);
+                elif j == 2:
+                    print "Conversation Data: "
+                    for k in range(len(self.conversations[i][j])):
+                        print "LINE" + str(k) + ": " + self.conversations[i][j][k];
 
     def findLineText(self, lineID):
         textFound = False;
