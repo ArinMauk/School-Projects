@@ -68,7 +68,12 @@ def main():
 
     print "Here is the data we are working with:"
     cornellData.printConversationsMatrix();
-    
-    #lda(cornellData, amtConversations);
+    print "======================================================================"
+    continueToLDA = raw_input("Press enter to continue on to lda.");
+    print "======================================================================"
+    lda(cornellData, amtConversations);
+    print "======================================================================"
+    continueToword2Vec = raw_input("Press enter to continue on to word2Vec.");
+    print "======================================================================"
     word2Vec(cornellData, amtConversations);
 main();
